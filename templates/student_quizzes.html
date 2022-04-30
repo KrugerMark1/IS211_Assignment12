@@ -1,0 +1,32 @@
+<!doctype html>
+
+<html>
+
+	<head>
+		<title>Student Quizzes</title>
+	</head>
+
+	<body>
+		<div class="app">
+			{% if quizzes|length > 0 %}
+				<table>
+					<tr>
+					  <th>Quiz ID</th>
+					  <th>Score</th>
+					</tr>
+				{% for item in quizzes %}
+					<tr>
+						<td>{{item[2]}}</td>
+						<td>{{item[3]}}</td>
+					</tr>
+				{% endfor %}
+				</table>
+			{% else %}
+				<div>
+					<p>No Results</p>
+				</div>
+			{% endif %}
+		</div>
+	</body>
+
+</html>

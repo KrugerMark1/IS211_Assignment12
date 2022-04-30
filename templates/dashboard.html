@@ -1,0 +1,67 @@
+<!doctype html>
+
+<html>
+
+	<head>
+		<title>Teacher Dashboard</title>
+		<link rel="stylesheet" href="{{ url_for('static', filename='dashboard.css') }}" type="text/css"></link>
+	</head>
+
+	<body>
+		<div class="welcomeWrapper">
+			<h1 class="welcome">Welcome!</h1>
+			<a href="/student/add">
+				<button>Add Student</button>
+			</a>
+			<a href="/quiz/add">
+				<button>Add Quiz</button>
+			</a>
+			<a href="/results/add">
+				<button>Add Quiz Result</button>
+			</a>
+		</div>
+		<div class="app">
+			<div class="left">
+				<table id="students">
+					<tr>
+					  <th>ID</th>
+					  <th>First Name</th>
+					  <th>Last Name</th>
+					  <th>Quizzes</th>
+					</tr>
+				{% for item in students %}
+					<tr>
+						<td>{{item[0]}}</td>
+						<td>{{item[1]}}</td>
+						<td>{{item[2]}}</td>
+						<td>
+							<a href="/student/{{item[0]}}">
+								<button>Quizzes</button>
+							</a>
+						</td>
+					</tr>
+				{% endfor %}
+				</table>
+			</div>
+			<div class="right">
+				<table id="quizzes">
+					<tr>
+					  <th>ID</th>
+					  <th>Subject</th>
+					  <th># of questions</th>
+					  <th>Date</th>
+					</tr>
+				{% for item in quizzes %}
+					<tr>
+						<td>{{item[0]}}</td>
+						<td>{{item[1]}}</td>
+						<td>{{item[2]}}</td>
+						<td>{{item[3]}}</td>
+					</tr>
+				{% endfor %}
+				</table>
+			</div>
+		</div>
+	</body>
+
+</html>

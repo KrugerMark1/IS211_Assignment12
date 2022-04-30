@@ -1,0 +1,36 @@
+<!doctype html>
+
+<html>
+
+	<head>
+		<title>Quiz Add</title>
+	</head>
+
+	<body>
+		<div>
+			<h1>Please add a quiz</h1>
+			<p>You will be taken back to the dashboard upon successfully adding a quiz.</p>
+		</div>
+		<div class="app">
+			<form action="/quiz/add" method="post">
+				<label for="subject">
+					Subject
+				</label>
+				<input type="text" name="subject">
+				<label for="num">
+					Number of Questions
+				</label>
+				<input type="number" name="num">
+				<label for="num">
+					Date
+				</label>
+				<input type="date" name="date">
+				<button type="submit" class="submit">Add Quiz</button>
+			</form>
+			{% if error_messages %}
+ 				<div>{{error_messages}}</div>
+			{% endif %}
+		</div>
+	</body>
+
+</html>

@@ -1,0 +1,32 @@
+<!doctype html>
+
+<html>
+
+	<head>
+		<title>Student Add</title>
+	</head>
+
+	<body>
+		<div>
+			<h1>Please add a student</h1>
+			<p>You will be taken back to the dashboard upon successfully adding a student.</p>
+		</div>
+		<div class="app">
+			<form action="/student/add" method="post">
+				<label for="first">
+					First Name of Student
+				</label>
+				<input type="text" name="first">
+				<label for="last">
+					Last Name of Student
+				</label>
+				<input type="text" name="last">
+				<button type="submit" class="submit">Add Student</button>
+			</form>
+			{% if error_messages %}
+ 				<div>{{error_messages}}</div>
+			{% endif %}
+		</div>
+	</body>
+
+</html>

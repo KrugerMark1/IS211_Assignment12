@@ -1,0 +1,44 @@
+<!doctype html>
+
+<html>
+
+	<head>
+		<title>Results Add</title>
+	</head>
+
+	<body>
+		<div>
+			<h1>Please add a quiz result</h1>
+			<p>You will be taken back to the dashboard upon successfully adding a quiz result.</p>
+		</div>
+		<div class="app">
+			<form action="/results/add" method="post">
+				<label for="student">
+					Student
+				</label>
+				<select name="student" id="student">
+					{% for item in students %}
+						<option value="{{item[0]}}">{{item[1]}} {{item[2]}}</option>
+					{% endfor %}
+				</select>
+				<label for="quiz">
+					Quiz
+				</label>
+				<select name="quiz" id="quiz">
+					{% for item in quizzes %}
+						<option value="{{item[0]}}">{{item[1]}} | {{item[3]}}</option>
+					{% endfor %}
+				</select>
+				<label for="score">
+					Score
+				</label>
+				<input type="number" name="score">
+				<button type="submit" class="submit">Add Quiz Result</button>
+			</form>
+			{% if error_messages %}
+ 				<div>{{error_messages}}</div>
+			{% endif %}
+		</div>
+	</body>
+
+</html>
